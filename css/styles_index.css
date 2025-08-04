@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --nav-bg: #ffffff;
+  --nav-border: #ffffff;
+  --nav-height: 80px;
+  --nav-padding: 0 4rem;
+  --color-text: #394b4f;
+  --color-primary: #fff;
+  --color-primary-hover: #97e6cc;
+  --font-base: 'Montserrat', sans-serif;
+}
+
+/* Fondo global de la página */
+body {
+  font-family: var(--font-base);
+  line-height: 1.5;
+  background: linear-gradient(135deg, #3bb78b, #33bde4);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background-color: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+  z-index: 100;
+  margin-bottom: 8rem;
+}
+
+.navbar__container {
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  padding: var(--nav-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.navbar__logo {
+  width: 50px;
+  height: auto;
+  margin-right: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.navbar__logo:hover {
+  transform: scale(1.1);
+}
+
+.navbar__title {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  color: var(--color-text);
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.navbar__title:hover {
+  transform: scale(1.1);
+}
+
+.navbar__links {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.navbar__links li button {
+  font-family: var(--font-base);
+  font-size: 18px;
+  background: none;
+  border: none;
+  color: var(--color-text);
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.btn--inicio,
+.btn--como,
+.btn--agent,
+.btn--nosotros {
+  background-color: var(--color-primary);
+  color: #000;
+  border-radius: 1.25rem;
+  transition: background-color 0.2s ease;
+}
+
+.btn--inicio:hover,
+.btn--como:hover,
+.btn--agent:hover,
+.btn--nosotros:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* Hero sin fondo propio */
+.hero {
+  top: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  color: #fff;
+  padding: 4rem 0;
+}
+
+/* Botón de Hero (CTA) */
+#cta {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: #000;
+  padding: 0.75rem 1.5rem;
+  border-radius: 1rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+#cta:hover {
+  transform: scale(1.1);
+}
+
+/* Botón flotante de WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: #f8f8f8;
+  color: #394b4f;
+  padding: 0.75rem 1rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.2);
+  background-color: var(--color-primary-hover);
+}
+
+.navbar__whats {
+  width: 32px;
+  height: auto;
+}
+
+.whatsapp-float::after {
+  content: "Agendemos una cita para iniciar una prueba";
+  position: absolute;
+  top: 50%;
+  right: 110%;
+  transform: translateY(-50%);
+  background-color: var(--color-primary-hover);
+  color: #394b4f;
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, right 0.2s ease;
+}
+
+.whatsapp-float:hover::after {
+  opacity: 1;
+  right: 100%;
+}
+
+/* Sección de bloques informativos sin fondo propio */
+.info-blocks {
+  padding: 4rem 0;
+}
+
+.info-blocks__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.info-block--left {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.60);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.info-block--right {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.60);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.btn--info {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-family: var(--font-base);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--color-text);
+  background: rgba(51, 189, 228, 0.35);
+  border: 1px solid var(--color-text);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  word-break: break-word;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn--infov2 {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-family: var(--font-base);
+  font-size: 1.5rem;
+  font-weight: 1000;
+  line-height: 1.4;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid var(--color-text);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.btn--infov3 {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-family: var(--font-base);
+  font-size: 1rem;
+  font-weight: 1000;
+  line-height: 1.4;
+  color: #000;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--color-text);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  word-break: break-word;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.btn--info:hover {
+  background: rgba(255, 255, 255, 0.7);
+  font-weight: 1000;
+  color: #000;
+}
+
+.btn--infov3:hover{
+  font-weight: 1000;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.7);
+  transform: scale(1.1);
+}

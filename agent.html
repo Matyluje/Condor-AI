@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Condor Assist AI - Tu agente AI integrado a WhatsApp" />
+  <title>Condor Assist AI - Tu agente AI</title>
+  <link rel="icon" href="imagenes/Logo.png" type="image/png" />
+  <link rel="stylesheet" href="css/styles_agent.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="navbar__container">
+        <!-- Logo y nombre -->
+        <a href="index.html" class="navbar__brand">
+          <img src="imagenes/Logo.png" alt="Condor Assist AI Logo" class="navbar__logo" />
+        </a>
+        <a href="index.html" class="navbar__title">Cóndor Assist AI</a>
+        <!-- Enlaces de navegación -->
+        <ul class="navbar__links">
+          <li>
+            <button class="btn--agent" onclick="location.href='agent.html'">
+              Tu agente AI
+            </button>
+          </li>
+          <li>
+            <button class="btn--como" onclick="location.href='index.html#como'">
+              Cómo Funciona
+            </button>
+          </li>
+          <li>
+            <button class="btn--nosotros" onclick="location.href='index.html#nosotros'">
+              Quienes somos
+            </button>
+          </li>
+          <li>
+            <button class="btn--inicio" onclick="location.href='index.html#inicio'">
+              Casos de Éxito
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Sección: Tu agente AI -->
+    <section id="agent" class="agent-section">
+      <div class="agent-section__container">
+        <h2>Tu agente AI</h2>
+        <img src="imagenes/Agente.png" alt="Logo Tu Agente AI" class="agent-section__logo" />
+        <p>Conoce a tu asistente inteligente integrado a WhatsApp.</p>
+        <!-- Video embebido -->
+        <div class="agent-section__video">
+          <video src="videos/agent-demo.mp4" controls width="640" height="360">
+            Tu navegador no soporta la etiqueta <code>video</code>.
+          </video>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a
+    href="https://wa.me/593XXXXXXXXX?text=Hola%20Quiero%20una%20prueba%20gratis"
+    target="_blank"
+    class="whatsapp-float"
+    aria-label="Chat WhatsApp"
+  >
+    <img src="imagenes/Agente.png" alt="Icono WhatsApp" class="navbar__whats" />
+  </a>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
