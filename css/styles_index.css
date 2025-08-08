@@ -26,18 +26,22 @@ body {
   background: linear-gradient(135deg, #3bb78b, #33bde4);
   background-attachment: fixed;
   min-height: 100vh;
+  padding-top: var(--nav-height); /* Ajuste para que el contenido no quede oculto debajo de la navbar */
 }
 
 /* Navbar */
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   height: var(--nav-height);
   background-color: var(--nav-bg);
   border-bottom: 1px solid var(--nav-border);
   z-index: 100;
-  margin-bottom: 8rem;
+  margin-bottom: 0;
+  /* Fallback para navegadores antiguos */
+  position: -webkit-fixed;
 }
 
 .navbar__container {
@@ -127,7 +131,19 @@ body {
   gap: 1rem;
   text-align: center;
   color: #fff;
-  padding: 4rem 0;
+  padding-top: 12rem;
+  padding-bottom: 9rem;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+.hero p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }
 
 /* Botón de Hero (CTA) */
@@ -140,6 +156,7 @@ body {
   text-decoration: none;
   font-weight: 600;
   transition: transform 0.2s ease;
+  font-size: 1.25rem;
 }
 
 #cta:hover {
@@ -196,7 +213,7 @@ body {
   right: 100%;
 }
 
-/* Sección de bloques informativos sin fondo propio */
+/* Sección de bloques informativos */
 .info-blocks {
   padding: 4rem 0;
 }
@@ -205,23 +222,12 @@ body {
   max-width: 1400px;
   margin: 0 auto;
   display: flex;
+  flex-direction: row; /* Asegura disposición horizontal */
   justify-content: space-between;
   gap: 4rem;
 }
 
-.info-block--left {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.60);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 1rem;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-}
-
+.info-block--left,
 .info-block--right {
   flex: 1;
   background: rgba(255, 255, 255, 0.60);
@@ -233,6 +239,28 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+  position: relative; /* Para posicionar el pseudo-elemento */
+}
+
+.info-block--left::before,
+.info-block--right::before {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 0;
+  border-radius: 1.5rem;
+  background: rgba(51, 189, 228, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  filter: blur(2px);
+}
+
+.info-block--left > *,
+.info-block--right > * {
+  position: relative;
+  z-index: 1;
 }
 
 .btn--info {
@@ -297,4 +325,12 @@ body {
   color: #ffffff;
   background: rgba(0, 0, 0, 0.7);
   transform: scale(1.1);
+}
+
+/* Opcional: para pantallas pequeñas, apila verticalmente */
+@media (max-width: 900px) {
+  .info-blocks__container {
+    flex-direction: column;
+    gap: 2rem;
+  }
 }
