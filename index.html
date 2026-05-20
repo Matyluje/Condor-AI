@@ -3,102 +3,477 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Condor Assist AI - Inicio" />
-    <title>Condor Assist AI</title>
+    <meta name="description" content="PROMT.EC — Construimos plataformas web, agentes de IA y sistemas de automatización para negocios en Ecuador y Latinoamérica." />
+    <meta property="og:title" content="PROMT.EC" />
+    <meta property="og:site_name" content="PROMT.EC" />
+    <meta property="og:description" content="Plataformas web, agentes de IA y automatizaciones para negocios en Ecuador y LATAM." />
+    <title>PROMT.EC</title>
     <link rel="icon" href="imagenes/Logo.png" type="image/png" />
     <link rel="stylesheet" href="css/styles_index.css" />
   </head>
   <body>
+
+    <!-- ====== NAVBAR ====== -->
     <header>
       <nav class="navbar">
         <div class="navbar__container">
-          <!-- Logo y nombre -->
           <a href="index.html" class="navbar__brand">
-            <img src="imagenes/Logo.png" alt="Condor Assist AI Logo" class="navbar__logo" />
+            <img src="imagenes/Logo.png" alt="PROMT.EC Logo" class="navbar__logo" />
+            <span class="navbar__name">PROMT.EC</span>
           </a>
-          <a href="index.html" class="navbar__title">Cóndor Assist AI</a>
-          <!-- Enlaces de navegación -->
-          <ul class="navbar__links">
-            <li>
-              <button class="btn--agent" onclick="location.href='agent.html'">
-                Tu agente AI
-              </button>
-            </li>
-            <li>
-              <button class="btn--como" onclick="location.href='index.html#como'">
-                Cómo Funciona
-              </button>
-            </li>
-            <li>
-              <button class="btn--nosotros" onclick="location.href='index.html#nosotros'">
-                Quienes somos
-              </button>
-            </li>
-            <li>
-              <button class="btn--inicio" onclick="location.href='index.html#inicio'">
-                Casos de Éxito
-              </button>
-            </li>
+          <ul class="navbar__links" id="navLinks">
+            <li><a href="#sistemas" class="nav-link">Servicios</a></li>
+            <li><a href="#como" class="nav-link">Cómo funciona</a></li>
+            <li><a href="#precios" class="nav-link">Precios</a></li>
+            <li><a href="#contacto" class="btn-nav-cta">Hablar con nosotros →</a></li>
           </ul>
+          <button class="navbar__hamburger" id="navHamburger" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+          </button>
         </div>
       </nav>
     </header>
 
     <main>
-      <section class="hero">
-        <h1>Convierte tu WhatsApp en un vendedor 24/7 con IA</h1>
-        <p>Integramos un chatbot con IA en tu WhatsApp y CRM en solo una semana. Soporte local en español y resultados medibles desde el día 1.</p>
-        <a
-          id="cta"
-          href="https://wa.me/593XXXXXXXXX?text=Hola%20Quiero%20una%20prueba%20gratis"
-          target="_blank"
-          class="btn--primary"
-        >
-          Agenda tu prueba gratis
-        </a>
-        <p>Sin compromiso. Demostración de 15 min por videollamada.</p>
+
+      <!-- ====== 1. HERO ====== -->
+      <section class="hero" id="inicio">
+        <div class="hero__inner">
+          <div class="hero__content">
+            <span class="label-tag">promt.ec · Ecuador & LATAM</span>
+            <h1>Automatiza tu negocio<br>con IA que realmente funciona.</h1>
+            <p class="hero__sub">Construimos plataformas web, agentes de IA y sistemas de automatización para negocios en Ecuador y Latinoamérica.</p>
+            <a href="#contacto" class="btn-cta">Quiero automatizar mi negocio →</a>
+            <p class="hero__trust">✓ Ya trabajamos con negocios en Ecuador &nbsp;·&nbsp; ✓ Proyectos desde $500 USD</p>
+          </div>
+          <!-- Orbe visual tecnológico -->
+          <div class="hero-orb" aria-hidden="true">
+            <div class="orb-glow"></div>
+            <div class="orb-core"></div>
+            <div class="orb-ring orb-ring-1"></div>
+            <div class="orb-ring orb-ring-2"></div>
+            <div class="orb-ring orb-ring-3"></div>
+            <div class="orb-dot orb-dot-1"></div>
+            <div class="orb-dot orb-dot-2"></div>
+            <div class="orb-dot orb-dot-3"></div>
+          </div>
+        </div>
       </section>
 
-    <section class="info-blocks">
-      <div class="info-blocks__container">
-        <!-- Bloque Izquierdo -->
-        <div class="info-block--left">
-          <div class="info-block__item">
-            <a href="https://www.nexgencloud.com/blog/case-studies/how-ai-and-rag-chatbots-cut-customer-service-costs-by-millions?utm_source=chatgpt.com" class="btn btn--info" target="_blank" rel="noopener">Un informe de IBM muestra que los chatbots pueden resolver hasta el 80 % de las consultas rutinarias y recortar los costes de atención en un 30 %.</a>
+      <!-- ====== 2. SISTEMAS QUE DISEÑAMOS ====== -->
+      <section class="systems-section" id="sistemas">
+        <div class="section-container">
+          <div class="section-header">
+            <h2 class="section-title">Sistemas que diseñamos.</h2>
+            <p class="section-caption">No construimos software por construir. Diseñamos infraestructura digital adaptada a la realidad operativa del negocio.</p>
           </div>
-          <div class="info-block__item">
-            <a href="https://www.kixie.com/sales-blog/22-eye-opening-crm-stats-you-should-know-for-2024/" class="btn btn--info" target="_blank" rel="noopener">Las compañías que implantan un CRM logran un aumento medio del 29 % en ventas según Salesforce.</a>
-          </div>
-          <div class="info-block__item">
-            <a href="https://trengo.com/es/blog/estadisticas-de-whatsapp-business" class="btn btn--info" target="_blank" rel="noopener">El 55 % de los negocios que usan chatbots afirman generar un mayor volumen de leads de alta calidad.</a>
+          <div class="systems-grid">
+
+            <div class="system-card">
+              <span class="system-card__num">01 / PLATFORM</span>
+              <h3>Plataformas Web · Custom Code</h3>
+              <p>Ecosistemas propietarios optimizados para conversión. Catálogos dinámicos, checkout sin fricción y UX/UI enfocado en el usuario final.</p>
+              <div class="system-card__tags">
+                <span>Next.js</span><span>React</span><span>Tailwind</span><span>Supabase</span>
+              </div>
+            </div>
+
+            <div class="system-card">
+              <span class="system-card__num">02 / AI ENGINE</span>
+              <h3>Motor de Automatización & IA</h3>
+              <p>Agentes conversacionales sobre OpenAI, flujos n8n avanzados y memoria dinámica con Session ID. Seguimiento y cierre de ventas 24/7.</p>
+              <div class="system-card__tags">
+                <span>OpenAI</span><span>n8n</span><span>Webhooks</span><span>Session Memory</span>
+              </div>
+            </div>
+
+            <div class="system-card">
+              <span class="system-card__num">03 / INTELLIGENCE</span>
+              <h3>Inteligencia Comercial · IA</h3>
+              <p>Sistemas analíticos para decisiones. Comportamiento de ventas, rotación de inventario y recomendaciones automáticas: descuentos, stock crítico, baja rotación.</p>
+              <div class="system-card__tags">
+                <span>Analytics</span><span>Forecasting</span><span>Auto-alerts</span>
+              </div>
+            </div>
+
+            <div class="system-card">
+              <span class="system-card__num">04 / OPERATIONS</span>
+              <h3>Gestión Operativa & Admin</h3>
+              <p>Dashboards corporativos protegidos: equipo, roles, inventarios y finanzas. Eliminamos la dependencia tóxica de personas clave.</p>
+              <div class="system-card__tags">
+                <span>RBAC</span><span>Dashboards</span><span>Audit logs</span>
+              </div>
+            </div>
+
           </div>
         </div>
-        <!-- Bloque Derecho -->
-        <div class="info-block--right">
-          <div class="info-block__item">
-            <a class="btn btn--infov2">🚀 Beta pública abierta</a>
+      </section>
+
+      <!-- ====== 3. TU AGENTE IA ====== -->
+      <section class="agent-section" id="agente">
+        <div class="section-container agent-section__inner">
+          <div class="agent-section__text">
+            <span class="label-tag">Tu Agente IA</span>
+            <h2>Un agente que trabaja para tu negocio — no solo responde mensajes.</h2>
+            <p>Parte del Motor de Automatización & IA: agentes que califican prospectos, registran datos, agendan citas y cierran ventas. Integrado en WhatsApp, tu web o cualquier canal.</p>
+            <a href="agent.html" class="btn-cta">Ver demo del agente →</a>
           </div>
-          <div class="info-block__item">
-            <a href="https://wa.me/593XXXXXXXXX?text=Hola%20Quiero%20una%20prueba%20gratis" class="btn btn--infov3">Solo 5 integraciones disponibles este mes. Reserva tu lugar ahora</a>
+          <div class="agent-section__visual">
+            <div class="agent-preview-card">
+              <div class="agent-preview__header">
+                <div class="agent-preview__dot"></div>
+                <span>Agente activo · 24/7</span>
+              </div>
+              <div class="agent-preview__messages">
+                <div class="msg msg--in">Hola, ¿tienen disponible el producto X?</div>
+                <div class="msg msg--out">¡Hola! Sí, tenemos stock. ¿Lo quieres con entrega para hoy?</div>
+                <div class="msg msg--in">Sí, ¿cuánto demora?</div>
+                <div class="msg msg--out">Entre 45–60 min. Te confirmo el pedido ahora. ¿Tu dirección?</div>
+              </div>
+              <div class="agent-preview__footer">Procesado automáticamente · sin intervención humana</div>
+            </div>
           </div>
-          <div class="info-block__item">
-            <a href="agent.html" class="btn btn--infov3">Mira nuestro modelo en acción 📽️</a>
+        </div>
+      </section>
+
+      <!-- ====== 4. CÓMO FUNCIONA ====== -->
+      <section class="process-section" id="como">
+        <div class="section-container">
+          <div class="section-header">
+            <h2 class="section-title">Cómo funciona.</h2>
+            <p class="section-caption">Simple. Transparente. Sin sorpresas.</p>
           </div>
+          <div class="steps-grid">
+
+            <div class="step-card">
+              <div class="step-card__icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 0 1-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+              </div>
+              <span class="step-card__tag">PASO 01</span>
+              <h3>Diagnóstico gratuito</h3>
+              <p>Entendemos tu negocio y te decimos honestamente si podemos ayudarte. Sin venta forzada, sin costo.</p>
+            </div>
+
+            <div class="step-card">
+              <div class="step-card__icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/></svg>
+              </div>
+              <span class="step-card__tag">PASO 02</span>
+              <h3>Propuesta a medida</h3>
+              <p>La solución exacta con costo claro y por escrito. Sin letras chicas ni sorpresas al final.</p>
+            </div>
+
+            <div class="step-card">
+              <div class="step-card__icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/></svg>
+              </div>
+              <span class="step-card__tag">PASO 03</span>
+              <h3>Implementación rápida</h3>
+              <p>Ponemos todo a funcionar. No necesitás saber nada técnico — eso es trabajo nuestro.</p>
+            </div>
+
+            <div class="step-card">
+              <div class="step-card__icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <span class="step-card__tag">PASO 04</span>
+              <h3>Soporte incluido</h3>
+              <p>No desaparecemos después de entregar. Soporte activo y mejoras continuas post-entrega.</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== 5. ¿POR QUÉ CONFIAR? — FUNDADORES ====== -->
+      <section class="trust-section" id="nosotros">
+        <div class="section-container">
+          <div class="trust-layout">
+
+            <!-- Columna izquierda: texto -->
+            <div class="trust-text">
+              <span class="label-tag">Quiénes somos</span>
+              <h2 class="section-title">¿Por qué confiar en nosotros?</h2>
+              <div class="trust-bio">
+                <p>
+                  Somos estudiantes de la Universidad San Francisco de Quito (USFQ),
+                  reconocida como la mejor universidad del Ecuador. Gracias a
+                  nuestro desempeño académico y liderazgo,
+                  hemos obtenido becas significativas que nos han permitido cursar
+                  carreras en Ingeniería Electrónica en el caso de Gabriel, e Ingeniería Mecánica
+                  junto con Matemáticas Aplicadas a la Computación de forma simultánea para Matias.
+                </p>
+                <p>
+                  PROMT.EC nació de una convicción simple: la IA no es un lujo de
+                  grandes corporaciones. Con el conocimiento técnico correcto y la
+                  mentalidad estratégica que la USFQ nos formó para tener,
+                  cualquier negocio puede automatizarse, escalar y competir.
+                  Eso es exactamente lo que venimos a demostrar.
+                </p>
+              </div>
+            </div>
+
+            <!-- Columna derecha: founders -->
+            <div class="trust-founders">
+
+              <div class="founder-card">
+                <div class="founder-photo">
+                  <img
+                    src="./assets/gabriel-bedon.jpg"
+                    alt="Gabriel Bedón"
+                    onerror="this.style.display='none'; document.getElementById('gb-initials').style.display='flex';"
+                  />
+                  <div class="founder-initials" id="gb-initials">GB</div>
+                </div>
+                <div class="founder-info">
+                  <h3 class="founder-name">Gabriel Bedón</h3>
+                  <p class="founder-role">Co-fundador · Estrategia & Sistemas</p>
+                  <div class="founder-socials">
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Gabriel Bedón" class="social-link">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Gabriel Bedón" class="social-link">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="founder-card">
+                <div class="founder-photo">
+                  <img
+                    src="./assets/edison-luje.jpg"
+                    alt="Edison Matías Luje"
+                    onerror="this.style.display='none'; document.getElementById('el-initials').style.display='flex';"
+                  />
+                  <div class="founder-initials" id="el-initials">EL</div>
+                </div>
+                <div class="founder-info">
+                  <h3 class="founder-name">Edison Matías Luje</h3>
+                  <p class="founder-role">Co-fundador · Ingeniería & Automatización</p>
+                  <div class="founder-socials">
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Edison Matías Luje" class="social-link">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Edison Matías Luje" class="social-link">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== 6. TESTIMONIOS ====== -->
+      <section class="testimonials-section" id="testimonios">
+        <div class="section-container">
+          <div class="section-header">
+            <h2 class="section-title">Testimonios</h2>
+          </div>
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <div class="testimonial-card__header">
+                <h4>Mascotas Delivery Ecuador</h4>
+                <span class="testimonial-card__sector">Delivery · E-commerce</span>
+              </div>
+              <p>"Automatizamos los pedidos por WhatsApp. El agente responde, confirma y registra sin que nadie esté al teléfono. Implementado en menos de una semana."</p>
+              <div class="testimonial-card__result">
+                ✓ Pedidos procesados 24/7 sin intervención manual
+              </div>
+            </div>
+            <div class="testimonial-card testimonial-card--placeholder">
+              <p>Tu negocio podría ser el próximo caso.</p>
+              <a href="#contacto" class="btn-cta-sm">Conversemos →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== 7. PRECIOS ====== -->
+      <section class="pricing-section" id="precios">
+        <div class="section-container">
+          <div class="section-header">
+            <h2 class="section-title">Precios</h2>
+            <p class="section-caption">Sin costos ocultos. Sin contratos anuales.</p>
+          </div>
+          <div class="pricing-grid">
+
+            <div class="pricing-card">
+              <p class="pricing-card__tag">PLAN INICIAL</p>
+              <div class="pricing-card__price">
+                <span class="price-amount">$50</span>
+                <span class="price-currency">USD</span>
+              </div>
+              <p class="pricing-card__desc">Para negocios que necesitan presencia digital profesional y funcional.</p>
+              <ul class="pricing-card__features">
+                <li><span class="check">✓</span> Landing page profesional</li>
+                <li><span class="check">✓</span> Formulario de contacto integrado</li>
+                <li><span class="check">✓</span> Diseño responsive (mobile-first)</li>
+                <li><span class="check">✓</span> Botón de WhatsApp integrado</li>
+                <li><span class="check">✓</span> Entrega en 5 días hábiles</li>
+              </ul>
+              <a href="#contacto" class="btn-outline">Quiero este plan</a>
+            </div>
+
+            <div class="pricing-card pricing-card--featured">
+              <p class="pricing-card__tag">PLAN PROFESIONAL</p>
+              <div class="pricing-card__price">
+                <span class="price-from">Desde</span>
+                <span class="price-amount">$500</span>
+                <span class="price-currency">USD</span>
+              </div>
+              <p class="pricing-card__desc">Para negocios listos para implementar IA y automatización real en su operación.</p>
+              <ul class="pricing-card__features">
+                <li><span class="check">✓</span> Plataforma web custom completa</li>
+                <li><span class="check">✓</span> Agente de IA integrado (WhatsApp / Web)</li>
+                <li><span class="check">✓</span> Automatizaciones con n8n a medida</li>
+                <li><span class="check">✓</span> Dashboard operativo</li>
+                <li><span class="check">✓</span> Soporte post-entrega incluido</li>
+                <li><span class="check">✓</span> Implementación en 7–15 días</li>
+              </ul>
+              <a href="#contacto" class="btn-cta">Quiero este plan →</a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== 8. CTA FINAL ====== -->
+      <section class="cta-final-section" id="contacto">
+        <div class="section-container cta-final-section__inner">
+          <div class="cta-final__text">
+            <h2>¿Listo para automatizar<br>tu negocio?</h2>
+            <p>Cuéntanos qué necesitas. El diagnóstico inicial es gratuito.</p>
+            <img src="imagenes/Logo.png" alt="PROMT.EC" class="cta-final__logo" />
+          </div>
+          <div class="cta-final__form-wrap">
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+              </div>
+              <div class="form-group">
+                <label for="whatsapp_num">WhatsApp</label>
+                <input type="tel" id="whatsapp_num" name="whatsapp_num" placeholder="Ej: 0991234567" required />
+              </div>
+              <div class="form-group">
+                <label for="negocio">Tipo de negocio</label>
+                <select id="negocio" name="negocio" required>
+                  <option value="" disabled selected>Seleccioná tu rubro</option>
+                  <option>Retail</option>
+                  <option>Delivery</option>
+                  <option>Servicios</option>
+                  <option>Manufactura</option>
+                  <option>Otro</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="servicio">¿Qué servicio te interesa?</label>
+                <select id="servicio" name="servicio" required>
+                  <option value="" disabled selected>Seleccioná un servicio</option>
+                  <option>Plataforma web</option>
+                  <option>Agente de IA</option>
+                  <option>Automatización con n8n</option>
+                  <option>Dashboard operativo</option>
+                  <option>No lo sé aún</option>
+                </select>
+              </div>
+              <button type="submit" class="btn-cta btn-cta--full">Quiero mi diagnóstico gratuito</button>
+            </form>
+            <p class="cta-final__alt">
+              O escríbenos directo →
+              <a href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20saber%20m%C3%A1s" target="_blank" class="cta-final__wa-link">WhatsApp</a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="footer">
+      <div class="section-container footer__inner">
+        <div class="footer__brand">
+          <div class="footer__brand-name">
+            <img src="imagenes/Logo.png" alt="Promt.sc" class="footer__logo" />
+            <span>Promt.sc</span>
+          </div>
+          <p>Automatización con IA para negocios<br>en Ecuador y LATAM</p>
+          <p class="footer__domain">promt.ec</p>
+        </div>
+        <div class="footer__nav">
+          <h4>Navegación</h4>
+          <a href="#sistemas">Servicios</a>
+          <a href="#como">Cómo Funciona</a>
+          <a href="#precios">Precios</a>
+          <a href="#contacto">Contacto</a>
+          <a href="agent.html">Tu Agente AI</a>
+          <a href="whoare.html">Quiénes Somos</a>
+        </div>
+        <div class="footer__contact">
+          <h4>Contacto</h4>
+          <p>📧 hola@promt.ec</p>
+          <p>🇪🇨 Ecuador · LATAM</p>
+          <a href="https://wa.me/593XXXXXXXXX" target="_blank" class="footer__wa">WhatsApp →</a>
         </div>
       </div>
-    </section>
+      <div class="footer__bottom">
+        <p class="section-container">© 2025 Promt.sc / Prompt SC · Todos los derechos reservados</p>
+      </div>
+    </footer>
 
-    <!-- Botón flotante de WhatsApp -->
+    <!-- ====== BOTÓN FLOTANTE WHATSAPP ====== -->
     <a
-      href="https://wa.me/593XXXXXXXXX?text=Hola%20Quiero%20una%20prueba%20gratis"
+      href="https://wa.me/593XXXXXXXXX?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20automatizar%20mi%20negocio"
       target="_blank"
       class="whatsapp-float"
-      aria-label="Chat WhatsApp"
+      aria-label="Chat por WhatsApp con Promt.sc"
     >
-      <img src="imagenes/Agente.png" alt="Icono WhatsApp" class="navbar__whats" />
+      <img src="imagenes/Whatsapp.png" alt="WhatsApp" />
     </a>
 
     <script src="js/script.js"></script>
+    <script>
+      // Menú hamburguesa
+      document.getElementById('navHamburger').addEventListener('click', function () {
+        document.getElementById('navLinks').classList.toggle('navbar__links--open');
+      });
+      document.querySelectorAll('.nav-link, .btn-nav-cta').forEach(function (el) {
+        el.addEventListener('click', function () {
+          document.getElementById('navLinks').classList.remove('navbar__links--open');
+        });
+      });
+
+      // Formulario → WhatsApp con datos del lead
+      document.getElementById('contactForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var nombre   = document.getElementById('nombre').value.trim();
+        var numero   = document.getElementById('whatsapp_num').value.trim();
+        var negocio  = document.getElementById('negocio').value;
+        var servicio = document.getElementById('servicio').value;
+        var msg = 'Hola, me llamo ' + nombre + '. Me interesa: ' + servicio + '. Tengo un negocio de ' + negocio + ' y mi WhatsApp es ' + numero + '. Quiero agendar mi diagnóstico gratuito.';
+        window.open('https://wa.me/593XXXXXXXXX?text=' + encodeURIComponent(msg), '_blank');
+      });
+
+      // Spotlight que sigue al mouse
+      document.addEventListener('mousemove', function (e) {
+        document.documentElement.style.setProperty('--mouse-x', e.clientX + 'px');
+        document.documentElement.style.setProperty('--mouse-y', e.clientY + 'px');
+      });
+
+      // Glow en hover de cards de servicios y pasos (sigue al cursor)
+      document.querySelectorAll('.system-card, .step-card').forEach(function (card) {
+        card.addEventListener('mousemove', function (e) {
+          var r = card.getBoundingClientRect();
+          var x = ((e.clientX - r.left) / r.width * 100).toFixed(1);
+          var y = ((e.clientY - r.top) / r.height * 100).toFixed(1);
+          card.style.setProperty('--cx', x + '%');
+          card.style.setProperty('--cy', y + '%');
+        });
+      });
+    </script>
   </body>
 </html>
-
