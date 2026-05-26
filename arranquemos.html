@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arranquemos — PROMT.EC</title>
+  <meta name="description" content="Cuéntanos sobre tu negocio. En menos de 24 horas te contactamos." />
+  <link rel="icon" href="imagenes/LogoFondoNegro.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --amber:        #F59E0B;
+      --amber-hover:  #D97706;
+      --black:        #111111;
+      --gray-50:      #FAFAFA;
+      --gray-100:     #F5F5F5;
+      --gray-200:     #E5E5E5;
+      --gray-400:     #AAAAAA;
+      --gray-600:     #555555;
+      --radius:       12px;
+      --radius-sm:    8px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #FFFFFF;
+      color: var(--black);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* =====================
+       NAVBAR MÍNIMO
+    ===================== */
+    .onboard-nav {
+      width: 100%;
+      padding: 0 2rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--gray-200);
+      background: #FFFFFF;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .onboard-nav__brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+
+    .onboard-nav__logo { width: 30px; height: auto; border-radius: 6px; }
+
+    .onboard-nav__name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--black);
+    }
+
+    .onboard-nav__back {
+      font-size: 0.85rem;
+      color: var(--gray-400);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s ease;
+    }
+
+    .onboard-nav__back:hover { color: var(--black); }
+
+    /* =====================
+       MAIN
+    ===================== */
+    .onboard-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4rem 1.5rem 6rem;
+      max-width: 680px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* Badge de plan */
+    .plan-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #FEF3C7;
+      border: 1px solid var(--amber);
+      color: #92400E;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.35rem 0.85rem;
+      border-radius: 100px;
+      margin-bottom: 1.75rem;
+    }
+
+    .plan-badge__dot {
+      width: 6px;
+      height: 6px;
+      background: var(--amber);
+      border-radius: 50%;
+    }
+
+    /* Headline */
+    .onboard-headline {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 800;
+      color: var(--black);
+      text-align: center;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.85rem;
+    }
+
+    .onboard-subline {
+      font-size: 1rem;
+      color: var(--gray-600);
+      text-align: center;
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* =====================
+       PASOS VISUALES
+    ===================== */
+    .onboard-steps {
+      display: flex;
+      align-items: flex-start;
+      width: 100%;
+      max-width: 480px;
+      margin-bottom: 3rem;
+    }
+
+    .onboard-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      flex: 1;
+      position: relative;
+    }
+
+    .onboard-step__circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+    }
+
+    .onboard-step--done .onboard-step__circle {
+      background: var(--black);
+      color: #FFFFFF;
+    }
+
+    .onboard-step--active .onboard-step__circle {
+      background: var(--amber);
+      color: var(--black);
+    }
+
+    .onboard-step--pending .onboard-step__circle {
+      background: var(--gray-100);
+      color: var(--gray-400);
+      border: 1px solid var(--gray-200);
+    }
+
+    .onboard-step__label {
+      font-size: 0.68rem;
+      color: var(--gray-400);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .onboard-step--active .onboard-step__label {
+      color: var(--black);
+      font-weight: 600;
+    }
+
+    .onboard-step--done .onboard-step__label { color: var(--gray-600); }
+
+    /* Línea conectora */
+    .onboard-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 18px;
+      left: calc(50% + 18px);
+      width: calc(100% - 36px);
+      height: 1px;
+      background: var(--gray-200);
+    }
+
+    /* =====================
+       FORMULARIO
+    ===================== */
+    .onboard-form {
+      width: 100%;
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-section-title {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--gray-400);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--gray-400);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-family: inherit;
+      font-size: 0.95rem;
+      padding: 0.75rem 1rem;
+      background: #FFFFFF;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      color: var(--black);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      min-height: 48px;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--gray-400); }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+      line-height: 1.6;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--amber);
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+    }
+
+    /* Botón submit */
+    .btn-onboard-submit {
+      width: 100%;
+      padding: 1rem;
+      background: var(--amber);
+      color: var(--black);
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      min-height: 52px;
+      transition: background 0.2s ease, transform 0.15s ease;
+      letter-spacing: -0.01em;
+    }
+
+    .btn-onboard-submit:hover {
+      background: var(--amber-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-onboard-submit:active { transform: translateY(0); }
+
+    .form-privacy {
+      font-size: 0.78rem;
+      color: var(--gray-400);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* =====================
+       ESTADO ÉXITO
+    ===================== */
+    .onboard-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.25rem;
+      padding: 3rem 1.5rem;
+      width: 100%;
+    }
+
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      background: #FEF3C7;
+      border: 2px solid var(--amber);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .success-icon svg {
+      width: 32px;
+      height: 32px;
+      color: var(--amber);
+    }
+
+    .success-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--black);
+      letter-spacing: -0.02em;
+    }
+
+    .success-body {
+      font-size: 1rem;
+      color: var(--gray-600);
+      line-height: 1.7;
+      max-width: 460px;
+    }
+
+    .success-detail {
+      font-size: 0.85rem;
+      color: var(--gray-600);
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1.25rem;
+      width: 100%;
+      max-width: 420px;
+      line-height: 1.6;
+    }
+
+    .success-wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--black);
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 0.85rem 1.75rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s ease;
+    }
+
+    .success-wa-btn:hover { background: #333333; }
+
+    /* =====================
+       RESPONSIVE
+    ===================== */
+    @media (max-width: 600px) {
+      .onboard-main { padding: 2.5rem 1rem 4rem; }
+      .onboard-form { padding: 1.5rem 1.25rem; }
+      .onboard-steps { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="onboard-nav">
+    <a href="index.html" class="onboard-nav__brand">
+      <img src="imagenes/LogoFondoNegro.png" alt="PROMT.EC" class="onboard-nav__logo" />
+      <span class="onboard-nav__name">PROMT.EC</span>
+    </a>
+    <a href="index.html#precios" class="onboard-nav__back">← Volver a planes</a>
+  </nav>
+
+  <main class="onboard-main">
+
+    <div class="plan-badge" id="planBadge">
+      <span class="plan-badge__dot"></span>
+      <span id="planBadgeText">Plan seleccionado</span>
+    </div>
+
+    <h1 class="onboard-headline">Ya casi arrancamos.</h1>
+    <p class="onboard-subline">
+      Cuéntanos sobre tu negocio. Con esta información preparamos una propuesta
+      real antes de nuestra primera llamada. Te contactamos en menos de 24 horas.
+    </p>
+
+    <div class="onboard-steps">
+      <div class="onboard-step onboard-step--done">
+        <div class="onboard-step__circle">✓</div>
+        <span class="onboard-step__label">Elegiste tu plan</span>
+      </div>
+      <div class="onboard-step onboard-step--active">
+        <div class="onboard-step__circle">2</div>
+        <span class="onboard-step__label">Cuéntanos tu negocio</span>
+      </div>
+      <div class="onboard-step onboard-step--pending">
+        <div class="onboard-step__circle">3</div>
+        <span class="onboard-step__label">Te contactamos</span>
+      </div>
+      <div class="onboard-step onboard-step--pending">
+        <div class="onboard-step__circle">4</div>
+        <span class="onboard-step__label">Propuesta a medida</span>
+      </div>
+    </div>
+
+    <form class="onboard-form" id="onboardForm" novalidate>
+
+      <p class="form-section-title">Tu información de contacto</p>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+        </div>
+        <div class="form-group">
+          <label for="whatsapp">WhatsApp</label>
+          <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej: 0991234567" required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" placeholder="tu@correo.com" required />
+      </div>
+
+      <p class="form-section-title">Tu negocio</p>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="empresa">Nombre de tu negocio</label>
+          <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa" required />
+        </div>
+        <div class="form-group">
+          <label for="rubro">Tipo de negocio</label>
+          <select id="rubro" name="rubro" required>
+            <option value="" disabled selected>Seleccioná tu rubro</option>
+            <option value="retail">Retail / Tienda</option>
+            <option value="delivery">Delivery / Reparto</option>
+            <option value="servicios">Servicios profesionales</option>
+            <option value="restaurante">Restaurante / Alimentos</option>
+            <option value="manufactura">Manufactura / Producción</option>
+            <option value="educacion">Educación / Capacitación</option>
+            <option value="salud">Salud / Bienestar</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="problema">¿Cuál es el principal problema que querés resolver?</label>
+        <textarea id="problema" name="problema" rows="3"
+          placeholder="Ej: Respondo WhatsApp manualmente todo el día y pierdo pedidos fuera de horario..."
+          required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="empleados">¿Cuántas personas trabajan en tu negocio?</label>
+        <select id="empleados" name="empleados">
+          <option value="" disabled selected>Seleccioná un rango</option>
+          <option value="1">Solo yo</option>
+          <option value="2-5">2 a 5 personas</option>
+          <option value="6-15">6 a 15 personas</option>
+          <option value="16-50">16 a 50 personas</option>
+          <option value="50+">Más de 50</option>
+        </select>
+      </div>
+
+      <input type="hidden" id="planSeleccionado" name="plan" value="" />
+
+      <button type="submit" class="btn-onboard-submit">
+        Enviar y esperar mi contacto →
+      </button>
+
+      <p class="form-privacy">
+        Tu información es confidencial. Solo la usamos para preparar tu propuesta.
+        Sin spam, sin newsletters.
+      </p>
+
+    </form>
+
+    <div class="onboard-success" id="onboardSuccess">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <h2 class="success-title">¡Listo! Te contactamos pronto.</h2>
+      <p class="success-body">
+        Recibimos tu información. En menos de 24 horas uno de nuestros
+        fundadores te escribe por WhatsApp para coordinar la primera llamada
+        de diagnóstico — sin costo, sin compromiso.
+      </p>
+      <div class="success-detail">
+        📋 Revisaremos tu negocio antes de llamarte para llegar con
+        ideas concretas, no preguntas genéricas.
+      </div>
+      <a href="https://wa.me/593999963919?text=Hola%2C%20acabo%20de%20completar%20el%20formulario%20en%20promt.ec"
+         target="_blank" rel="noopener noreferrer" class="success-wa-btn">
+        Escríbenos también por WhatsApp →
+      </a>
+    </div>
+
+  </main>
+
+  <script>
+    // Leer plan desde URL
+    const params = new URLSearchParams(window.location.search);
+    const plan = params.get('plan') || 'profesional';
+
+    const planTextos = {
+      inicial:      'Plan Inicial — $50 USD',
+      profesional:  'Plan Profesional — Desde $500 USD'
+    };
+
+    document.getElementById('planBadgeText').textContent =
+      planTextos[plan] || planTextos.profesional;
+    document.getElementById('planSeleccionado').value = plan;
+
+    // Envío del formulario
+    document.getElementById('onboardForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre   = document.getElementById('nombre').value.trim();
+      const whatsapp = document.getElementById('whatsapp').value.trim();
+      const email    = document.getElementById('email').value.trim();
+      const empresa  = document.getElementById('empresa').value.trim();
+      const rubro    = document.getElementById('rubro').value;
+      const problema = document.getElementById('problema').value.trim();
+      const empleados = document.getElementById('empleados').value;
+      const planVal  = document.getElementById('planSeleccionado').value;
+
+      if (!nombre || !whatsapp || !email || !empresa || !rubro || !problema) {
+        alert('Por favor completá todos los campos obligatorios.');
+        return;
+      }
+
+      const planLabel = planVal === 'inicial'
+        ? 'Plan Inicial ($50 USD)'
+        : 'Plan Profesional (desde $500 USD)';
+
+      const mensaje = encodeURIComponent(
+        `🚀 *Nueva solicitud — PROMT.EC*\n\n` +
+        `*Plan:* ${planLabel}\n` +
+        `*Nombre:* ${nombre}\n` +
+        `*WhatsApp:* ${whatsapp}\n` +
+        `*Email:* ${email}\n` +
+        `*Empresa:* ${empresa}\n` +
+        `*Rubro:* ${rubro}\n` +
+        `*Equipo:* ${empleados || 'No especificado'}\n\n` +
+        `*Problema a resolver:*\n${problema}`
+      );
+
+      const waURL = `https://wa.me/593999963919?text=${mensaje}`;
+
+      document.getElementById('onboardForm').style.display = 'none';
+      const successEl = document.getElementById('onboardSuccess');
+      successEl.style.display = 'flex';
+
+      setTimeout(() => { window.open(waURL, '_blank'); }, 1500);
+    });
+  </script>
+
+</body>
+</html>

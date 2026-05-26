@@ -1314,17 +1314,55 @@ section {
 .footer__wa { display: inline-block; color: #22c55e; text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: opacity 0.2s ease; }
 .footer__wa:hover { opacity: 0.8; }
 
+.footer__socials {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.footer__social-link {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer__social-link:hover {
+  background: rgba(245,158,11,0.15);
+  border-color: rgba(245,158,11,0.4);
+  color: #F59E0B;
+}
+
 .footer__bottom { text-align: center; }
 .footer__bottom p { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
 
 /* =====================
    BOTÓN FLOTANTE WHATSAPP
 ===================== */
-.whatsapp-float {
+.wa-float-wrapper {
   position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  background: #F59E0B;
+  bottom: 28px;
+  left: 28px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-direction: row-reverse;
+}
+
+.wa-float-btn {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #111111;
+  border: 2px solid #F59E0B;
   width: 52px; height: 52px;
   border-radius: 50%;
   display: flex;
@@ -1332,13 +1370,54 @@ section {
   justify-content: center;
   text-decoration: none;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
 }
 
-.whatsapp-float:hover { transform: scale(1.08); box-shadow: 0 6px 32px rgba(0, 0, 0, 0.6); }
+.wa-float-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 28px rgba(245, 158, 11, 0.35);
+}
 
-.whatsapp-float img { width: 26px; height: auto; filter: brightness(0); }
+.wa-float-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.wa-float-tooltip {
+  background: #111111;
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border: 1px solid #1F1F1F;
+  opacity: 0;
+  transform: translateX(-10px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.wa-float-wrapper:hover .wa-float-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 480px) {
+  .wa-float-tooltip { display: none; }
+  .wa-float-btn { width: 52px; height: 52px; }
+}
 
 /* =====================
    RESPONSIVE MOBILE
